@@ -1,9 +1,11 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
+// Register User
 const registerUser = async (req, res) => {
-  const user = new User(req.body);
   try {
+    const { username, password, email } = req.body;
+    const user = new User({ username, password, email });
     const newUser = await user.save();
     res.status(201).json(newUser);
   } catch (error) {
@@ -11,18 +13,29 @@ const registerUser = async (req, res) => {
   }
 };
 
+// Login User
 const loginUser = async (req, res) => {
-  const { username, password } = req.body;
-  const user = await User.findOne({ username });
+  try {
+    const { username, password } = req.body;
+    const user = await User.findOne({ username });
 
-  if (user && (await user.comparePassword(password))) {
+    if (!user) {
+      return res.status(401).json({ message: 'Invalid credentials' });
+    }
+
+    const isMatch = await user.comparePassword(password);
+    if (!isMatch) {
+      return res.status(401).json({ message: 'Invalid credentials' });
+    }
+
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
     res.json({ token });
-  } else {
-    res.status(401).json({ message: 'Invalid credentials' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 };
 
+// Get User Profile
 const getUserProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user.userId);
