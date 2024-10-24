@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProfilePage from './pages/ProfilePage';
 import IssueReportPage from './pages/IssueReportPage';
+import VolunteerPage from './pages/VolunteerPage';
 import Navbar from './components/Navbar';
 
 const App = () => (
@@ -16,6 +17,7 @@ const App = () => (
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/issues" element={<IssueReportPage />} />
+      <Route path="/volunteer" element={<VolunteerPage />} />
     </Routes>
   </Router>
 );

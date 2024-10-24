@@ -42,7 +42,9 @@ const IssueReportPage = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100 items-center justify-center">
+    <div className="flex bg-gray-100 items-center justify-center h-screen bg-cover bg-center"       
+    style={{ backgroundImage: "url('https://images.pexels.com/photos/7656995/pexels-photo-7656995.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')" }}
+    >
       <form
         onSubmit={handleSubmit}
         className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full animate__animated animate__fadeInUp"

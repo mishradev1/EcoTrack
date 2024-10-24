@@ -29,6 +29,10 @@ const Navbar = () => (
         <FontAwesomeIcon icon={faMapMarkerAlt} />
         <span>Issues</span>
       </Link>
+      <Link to="/volunteer" className="flex items-center space-x-2 hover:text-green-600 transition">
+        <FontAwesomeIcon icon={faMapMarkerAlt} />
+        <span>Volunteer</span>
+      </Link>
       <Link to="/profile" className="flex items-center space-x-2 hover:text-green-600 transition">
         <FontAwesomeIcon icon={faUser} />
         <span>Profile</span>

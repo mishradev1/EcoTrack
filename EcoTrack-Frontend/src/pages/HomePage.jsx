@@ -5,6 +5,7 @@ const HomePage = () => {
   return (
     <div
       className="h-screen bg-cover bg-center"
+    //   style={{ backgroundImage: "url('https://images.pexels.com/photos/7656995/pexels-photo-7656995.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')" }}
       style={{ backgroundImage: "url('https://images.pexels.com/photos/7656742/pexels-photo-7656742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')" }}
     >
       <div className="h-full bg-black bg-opacity-60 flex flex-col items-center justify-center text-white">
